@@ -1,0 +1,17 @@
+<purchase-order>
+    <customer>
+        <name>Jasen Bourne</name>
+        <address>Secret Place</address>
+    </customer>
+    <date>2011-08-01 09:16:00</date>
+    <line-item>
+        <description>The Bourne Identity</description>
+        <price>21.79</price>
+        <quantity>2</quantity>
+    </line-item>
+    <line-item>
+        <description>The Bourne Supremacy</description>
+        <price>19.89</price>
+        <quantity>2</quantity>
+    </line-item>
+</purchase-order>

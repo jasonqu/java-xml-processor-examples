@@ -1,10 +1,10 @@
-Õâ¸ö¹¤³ÌÖ¼ÔÚ±È½Ï¸÷ÖÖxmlµÄ½»»¥¼¼Êõ£¬Ìá¹©²Î¿¼
+è¿™ä¸ªå·¥ç¨‹æ—¨åœ¨æ¯”è¾ƒå„ç§xmlçš„äº¤äº’æŠ€æœ¯ï¼Œæä¾›å‚è€ƒ
 
-ÕâÀïÖ÷Òª¿¼²ìµÄxmlµÄ½»»¥¼¼ÊõÖ÷ÒªÊÇ£º
-xmlÎÄ¼şµÄ¶ÁºÍĞ´£¬¶Ô²»Í¬×Ö·û¼¯ºÏµÄ¼æÈİĞÔ£¬xmlÎÄ¼şÀ©Õ¹ºóµÄ¼æÈİĞÔ£¬xmlÄ£Ê½ĞŞ¸ÄÒÔºóµÄ´úÂë¸Ä¶¯³Ì¶È
+è¿™é‡Œä¸»è¦è€ƒå¯Ÿçš„xmlçš„äº¤äº’æŠ€æœ¯ä¸»è¦æ˜¯ï¼š
+xmlæ–‡ä»¶çš„è¯»å’Œå†™ï¼Œå¯¹ä¸åŒå­—ç¬¦é›†åˆçš„å…¼å®¹æ€§ï¼Œxmlæ–‡ä»¶æ‰©å±•åçš„å…¼å®¹æ€§ï¼Œxmlæ¨¡å¼ä¿®æ”¹ä»¥åçš„ä»£ç æ”¹åŠ¨ç¨‹åº¦
 
-ÕâÀïÑ¡ÓÃÁËÒ»¸öxmlbeansµÄÀı×Ó http://xmlbeans.apache.org/documentation/tutorial_getstarted.html
-Ê×ÏÈÒª¶ÁÒ»¸öÎÄ¼ş
+è¿™é‡Œé€‰ç”¨äº†ä¸€ä¸ªxmlbeansçš„ä¾‹å­ http://xmlbeans.apache.org/documentation/tutorial_getstarted.html
+é¦–å…ˆè¦è¯»ä¸€ä¸ªæ–‡ä»¶
 <purchase-order>
     <customer>
         <name>Jasen Bourne</name>
@@ -23,19 +23,19 @@ xmlÎÄ¼şµÄ¶ÁºÍĞ´£¬¶Ô²»Í¬×Ö·û¼¯ºÏµÄ¼æÈİĞÔ£¬xmlÎÄ¼şÀ©Õ¹ºóµÄ¼æÈİĞÔ£¬xmlÄ£Ê½ĞŞ¸ÄÒÔºóµ
     </line-item>
 </purchase-order>
 
-È»ºóÔö¼ÓÒ»¸öline-item
+ç„¶åå¢åŠ ä¸€ä¸ªline-item
     <line-item>
         <description>The Bourne Ultimatum</description>
         <price>20.89</price>
         <quantity>2</quantity>
     </line-item>
-²¢½«ÈÕÆÚ¸ÄÎª<date>2011-08-09 15:20:00</date>Ğ´³öµ½Ò»¸öÎÄ¼şÖĞ
+å¹¶å°†æ—¥æœŸæ”¹ä¸º<date>2011-08-09 15:20:00</date>å†™å‡ºåˆ°ä¸€ä¸ªæ–‡ä»¶ä¸­
 
-°Ñdescription·Ö±ğ¸Ä³ÉµıÓ°ÖØÖØ1ºÍµıÓ°ÖØÖØ2£¬²é¿´´úÂëµÄĞŞ¸ÄÇé¿ö
+æŠŠdescriptionåˆ†åˆ«æ”¹æˆè°å½±é‡é‡1å’Œè°å½±é‡é‡2ï¼ŒæŸ¥çœ‹ä»£ç çš„ä¿®æ”¹æƒ…å†µ
 
 
-µ±xmlµÄÄ£Ê½·¢ÉúÀ©Õ¹Ö®ºó£¬ÆäÖĞline-itemÔö¼ÓÁË<per-unit-ounces>5</per-unit-ounces>Ò»Ïî£¬
-customerÔö¼ÓÒ»¸öattribute email£¬²¢ÔÚµ×²¿Ôö¼ÓÒ»¸öshipper
+å½“xmlçš„æ¨¡å¼å‘ç”Ÿæ‰©å±•ä¹‹åï¼Œå…¶ä¸­line-itemå¢åŠ äº†<per-unit-ounces>5</per-unit-ounces>ä¸€é¡¹ï¼Œ
+customerå¢åŠ ä¸€ä¸ªattribute emailï¼Œå¹¶åœ¨åº•éƒ¨å¢åŠ ä¸€ä¸ªshipper
 <purchase-order>
     <customer email="secret@no-ip-host.org">
         <name>Jasen Bourne</name>
@@ -59,8 +59,8 @@ customerÔö¼ÓÒ»¸öattribute email£¬²¢ÔÚµ×²¿Ôö¼ÓÒ»¸öshipper
         <per-ounce-rate>0.74</per-ounce-rate>
     </shipper>
 </purchase-order>
-ÔÙ²âÊÔÆäÔ­ÓĞ¶ÁĞ´¹ı³Ì´úÂëµÄ¼æÈİĞÔ£¬ºÍĞÂ´úÂëĞèÒªµÄ¸Ä±ä
+å†æµ‹è¯•å…¶åŸæœ‰è¯»å†™è¿‡ç¨‹ä»£ç çš„å…¼å®¹æ€§ï¼Œå’Œæ–°ä»£ç éœ€è¦çš„æ”¹å˜
 
-×îºó½«customerµÄaddress¸ÄÎªcity£¬line-item¸ÄÎªlineItem,per-unit-ounces¸ÄÎªouncesPerUnit£¬per-ounce-rate¸ÄÎªratePerOunce
-ÔÙ²âÊÔÆäÔ­ÓĞ¶ÁĞ´¹ı³Ì´úÂëµÄ¼æÈİĞÔ£¬ºÍĞÂ´úÂëĞèÒªµÄ¸Ä±ä
+æœ€åå°†customerçš„addressæ”¹ä¸ºcityï¼Œline-itemæ”¹ä¸ºlineItem,per-unit-ouncesæ”¹ä¸ºouncesPerUnitï¼Œper-ounce-rateæ”¹ä¸ºratePerOunce
+å†æµ‹è¯•å…¶åŸæœ‰è¯»å†™è¿‡ç¨‹ä»£ç çš„å…¼å®¹æ€§ï¼Œå’Œæ–°ä»£ç éœ€è¦çš„æ”¹å˜
 

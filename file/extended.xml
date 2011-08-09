@@ -1,0 +1,23 @@
+<purchase-order xmlns="http://openuri.org/easypo">
+    <customer email="secret@no-ip-host.org">
+        <name>Jasen Bourne</name>
+        <address>Secret Place</address>
+    </customer>
+    <date>2011-08-01 09:16:00</date>
+    <line-item>
+        <description>The Bourne Identity</description>
+        <per-unit-ounces>5</per-unit-ounces>
+        <price>21.79</price>
+        <quantity>2</quantity>
+    </line-item>
+    <line-item>
+        <description>The Bourne Supremacy</description>
+        <per-unit-ounces>5</per-unit-ounces>
+        <price>19.89</price>
+        <quantity>2</quantity>
+    </line-item>
+    <shipper>
+        <name>ZipShip</name>
+        <per-ounce-rate>0.74</per-ounce-rate>
+    </shipper>
+</purchase-order>
