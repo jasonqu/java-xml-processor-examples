@@ -1,0 +1,69 @@
+This project is to compare different xml-processing tools, and give a reference to developers.
+
+The interface this project concerns are: the reading and writing of xml files, compatibility of different char-sets, 
+compatibility of extended xmls, the number of modification code after schema change.  
+
+This project use an example from xmlbeans http://xmlbeans.apache.org/documentation/tutorial_getstarted.html, 
+and refer to many excellent examples from here http://www.mkyong.com/tutorials/java-xml-tutorials/
+
+Every tool will do the same thing:
+1. read an xml file into PurchaseOrder object
+<purchase-order>
+    <customer>
+        <name>Jasen Bourne</name>
+        <address>Secret Place</address>
+    </customer>
+    <date>2011-08-01 09:16:00</date>
+    <line-item>
+        <description>The Bourne Identity</description>
+        <price>21.79</price>
+        <quantity>2</quantity>
+    </line-item>
+    <line-item>
+        <description>The Bourne Supremacy</description>
+        <price>19.89</price>
+        <quantity>2</quantity>
+    </line-item>
+</purchase-order>
+
+2. modify the object and write to another file. The modification includes modify the date to 
+<date>2011-08-09 15:20:00</date> and an addition of a 'LineItem'
+
+<line-item>
+    <description>The Bourne Ultimatum</description>
+    <price>20.89</price>
+    <quantity>2</quantity>
+</line-item>
+
+3. change the description to '谍影重重1' and '谍影重重2' respectively, check whether the code need to be modified.
+
+4. extend the xml schema: add <per-unit-ounces>5</per-unit-ounces> in 'line-item', add attribute 'email' to 'customer', 
+and add 'shipper' to 'purchase-order'. Then check whether the old code's compatibility and modification to read the whole file.  
+
+<purchase-order>
+    <customer email="secret@no-ip-host.org">
+        <name>Jasen Bourne</name>
+        <address>Secret Place</address>
+    </customer>
+    <date>2011-08-01 09:16:00</date>
+    <line-item>
+        <description>The Bourne Identity</description>
+        <per-unit-ounces>5</per-unit-ounces>
+        <price>21.79</price>
+        <quantity>2</quantity>
+    </line-item>
+    <line-item>
+        <description>The Bourne Supremacy</description>
+        <per-unit-ounces>5</per-unit-ounces>
+        <price>19.89</price>
+        <quantity>2</quantity>
+    </line-item>
+    <shipper>
+        <name>ZipShip</name>
+        <per-ounce-rate>0.74</per-ounce-rate>
+    </shipper>
+</purchase-order>
+
+5. rename 'address' in 'customer' to 'city', rename 'line-item', 'per-unit-ounces', 'per-ounce-rate' to 
+'lineItem', 'ouncesPerUnit', 'ratePerOunce' respectively. Then check whether the old code's compatibility
+ and modification to read the whole file.  
