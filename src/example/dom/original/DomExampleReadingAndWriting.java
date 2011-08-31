@@ -1,8 +1,8 @@
 package example.dom.original;
 
-import static example.dom.original.Util.createTextTag;
-import static example.dom.original.Util.getNodeValue;
-import static example.dom.original.Util.printDocument;
+import static example.dom.Util.createTextTag;
+import static example.dom.Util.getNodeValue;
+import static example.dom.Util.printDocument;
 
 import java.io.File;
 import java.text.SimpleDateFormat;

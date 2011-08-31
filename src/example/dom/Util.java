@@ -1,4 +1,4 @@
-package example.dom.original;
+package example.dom;
 
 import java.io.OutputStream;
 
