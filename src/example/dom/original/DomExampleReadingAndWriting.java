@@ -1,17 +1,15 @@
 package example.dom.original;
 
+import static example.dom.original.Util.createTextTag;
+import static example.dom.original.Util.getNodeValue;
+import static example.dom.original.Util.printDocument;
+
 import java.io.File;
-import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -22,40 +20,9 @@ import example.model.original.LineItem;
 import example.model.original.PurchaseOrder;
 
 /**
- * show the example of step 1 and 2
+ * show the example of step 1, 2 and 3
  */
 public class DomExampleReadingAndWriting {
-
-	private static void printDocument(Document doc, String encoding, OutputStream output)
-			throws Exception {
-		Transformer transformer = TransformerFactory.newInstance()
-				.newTransformer();
-		DOMSource source = new DOMSource(doc);
-		transformer.setOutputProperty(OutputKeys.ENCODING, encoding);
-		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-		transformer.transform(source, new StreamResult(output));
-	}
-
-	/**
-	 * This method is just for the end-point node, such as the customer.address
-	 * in original.xml 
-	 * 获取端点的文本内容，该方法只适合于端点，如original.xml中的customer.address
-	 * 
-	 * @param tag
-	 * @param element
-	 * @return
-	 */
-	private static String getNodeValue(String tag, Element element) {
-		return element.getElementsByTagName(tag).item(0).getChildNodes()
-				.item(0).getNodeValue();
-	}
-	
-	private static void createTextTag(Document doc, Element elementToBeAppend,
-			String tag, String text) {
-		Element name = doc.createElement(tag);
-		name.appendChild(doc.createTextNode(text));
-		elementToBeAppend.appendChild(name);
-	}
 
 	/**
 	 * parse the xml document into PurchaseOrder object 

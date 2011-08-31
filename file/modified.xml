@@ -1,4 +1,4 @@
-<purchase-order xmlns="http://openuri.org/easypo">
+<PurchaseOrder xmlns="http://openuri.org/easypo">
     <customer email="secret@no-ip-host.org">
         <name>Jasen Bourne</name>
         <city>Secret Place</city>
@@ -20,4 +20,4 @@
         <name>ZipShip</name>
         <ratePerOunce>0.74</ratePerOunce>
     </shipper>
-</purchase-order>
+</PurchaseOrder>
