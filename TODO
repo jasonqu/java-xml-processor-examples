@@ -1,7 +1,7 @@
 adding tools:
- - DOM XML Parser
+ - DOM XML Parser (finished)
  - SAX XML Parser
  - JDOM XML Parser
  - dom4j
  - JAXB
- - XStream
+ - XStream (finished)
