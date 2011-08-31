@@ -1,4 +1,4 @@
-package example.dom.original;
+package example.dom;
 
 import static example.dom.Util.createTextTag;
 import static example.dom.Util.getNodeValue;
@@ -15,17 +15,19 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import example.model.original.Customer;
-import example.model.original.LineItem;
-import example.model.original.PurchaseOrder;
+import example.model.extended.Customer;
+import example.model.extended.LineItem;
+import example.model.extended.PurchaseOrder;
+import example.model.extended.Shipper;
 
 /**
- * show the example of step 1, 2 and 3
+ * show the example of step 4
  */
-public class DomExampleReadingAndWriting {
+public class DomExampleReadingAndWritingExtended {
 
 	/**
-	 * parse the xml document into PurchaseOrder object 
+	 * parse the xml document into PurchaseOrder object
+	 * 
 	 * @param file
 	 * @return
 	 * @throws Exception
@@ -44,6 +46,7 @@ public class DomExampleReadingAndWriting {
 				.item(0);
 		c.setName(getNodeValue("name", customer));
 		c.setAddress(getNodeValue("address", customer));
+		c.setEmail(customer.getAttribute("email"));
 		po.setCustomer(c);
 
 		String date = getNodeValue("date", root);
@@ -54,15 +57,26 @@ public class DomExampleReadingAndWriting {
 			Element node = (Element) list.item(i);
 			LineItem li = new LineItem();
 			li.setDescription(getNodeValue("description", node));
+			li.setPerUnitOunces(Double.parseDouble(getNodeValue(
+					"per-unit-ounces", node)));
 			li.setPrice(Double.parseDouble(getNodeValue("price", node)));
 			li.setPrice(Integer.parseInt(getNodeValue("quantity", node)));
 			po.getLineItems().add(li);
 		}
+
+		Element shipper = (Element) root.getElementsByTagName("shipper")
+				.item(0);
+		Shipper s = new Shipper();
+		s.setName(getNodeValue("name", shipper));
+		s.setPerOunceRate(Double.parseDouble(getNodeValue("per-ounce-rate",
+				shipper)));
+		po.setShipper(s);
 		return po;
 	}
 
 	/**
-	 * parse the PurchaseOrder object into an xml document 
+	 * parse the PurchaseOrder object into an xml document
+	 * 
 	 * @param po
 	 * @return
 	 * @throws ParserConfigurationException
@@ -81,6 +95,7 @@ public class DomExampleReadingAndWriting {
 
 		createTextTag(doc, customer, "name", po.getCustomer().getName());
 		createTextTag(doc, customer, "address", po.getCustomer().getAddress());
+		customer.setAttribute("email", po.getCustomer().getEmail());
 
 		createTextTag(doc, rootElement, "date", new SimpleDateFormat(
 				"yyyy-MM-dd HH:mm:ss").format(po.getDate()));
@@ -88,6 +103,8 @@ public class DomExampleReadingAndWriting {
 		for (LineItem li : po.getLineItems()) {
 			Element lineItem = doc.createElement("line-item");
 			createTextTag(doc, lineItem, "description", li.getDescription());
+			createTextTag(doc, lineItem, "per-unit-ounces",
+					Double.toString(li.getPerUnitOunces()));
 			createTextTag(doc, lineItem, "price",
 					Double.toString(li.getPrice()));
 			createTextTag(doc, lineItem, "quantity",
@@ -95,32 +112,47 @@ public class DomExampleReadingAndWriting {
 			rootElement.appendChild(lineItem);
 		}
 
+		Element shipper = doc.createElement("shipper");
+		rootElement.appendChild(shipper);
+		createTextTag(doc, shipper, "name", po.getShipper().getName());
+		createTextTag(doc, shipper, "per-ounce-rate",
+				Double.toString(po.getShipper().getPerOunceRate()));
+
 		return doc;
 	}
-	
+
 	/**
 	 * @param args
 	 * @throws Exception
 	 */
 	public static void main(String[] args) throws Exception {
-		System.out.println("----------- get the object from xml file -----------");
-		PurchaseOrder po = getPurchaseOrderFromDocument("file/original.xml");
-		System.out.println("----------- print the original object -----------\n" + po);
+		System.out
+				.println("----------- get the object from xml file -----------");
+		PurchaseOrder po = getPurchaseOrderFromDocument("file/extended.xml");
+		System.out
+				.println("----------- print the original object -----------\n"
+						+ po);
 
 		System.out.println("----------- modify the object -----------");
-		po.getLineItems().add(new LineItem("The Bourne Ultimatum", 20.89, 2));
+		po.getLineItems()
+				.add(new LineItem("The Bourne Ultimatum", 5, 20.89, 2));
 		po.setDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
 				.parse("2011-08-09 15:20:00"));
-		System.out.println("----------- print the modified object -----------\n" + po);
+		System.out
+				.println("----------- print the modified object -----------\n"
+						+ po);
 
 		System.out.println("----------- print the generated xml -----------");
 		printDocument(writePurchaseOrderToDocument(po), "US-ASCII", System.out);
-		
-		System.out.println("----------- modify the object's charset -----------");
+
+		System.out
+				.println("----------- modify the object's charset -----------");
 		po.getLineItems().get(0).setDescription("谍影重重1");
 		po.getLineItems().get(1).setDescription("谍影重重2");
 		po.getLineItems().get(2).setDescription("谍影重重3");
-		System.out.println("----------- print the modified object -----------\n" + po);
+		System.out
+				.println("----------- print the modified object -----------\n"
+						+ po);
 		System.out.println("----------- print the generated xml -----------");
 		printDocument(writePurchaseOrderToDocument(po), "utf-8", System.out);
 	}

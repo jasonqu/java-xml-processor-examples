@@ -65,8 +65,8 @@ and add 'shipper' to 'purchase-order'. Then check whether the old code's compati
 </purchase-order>
 
 5. rename 'address' in 'customer' to 'city', rename 'line-item', 'per-unit-ounces', 'per-ounce-rate' to 
-'lineItem', 'ouncesPerUnit', 'ratePerOunce' respectively. Then check whether the old code's compatibility
- and modification to read the whole file.  
+'lineItem', 'ouncesPerUnit', 'ratePerOunce' respectively. Then read the extended.xml and output it as the 
+following modified one.  
 
 <PurchaseOrder xmlns="http://openuri.org/easypo">
     <customer email="secret@no-ip-host.org">
